@@ -1,49 +1,9 @@
 package main;
-import java.io.NotActiveException;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Random;
-
 import clases.*;
 
 public class Main {
 
 	public static void main(String[] args) {
-		
-		//Asignar numero random
-		
-		
-		
-		//Elementos agua, tierra, viento, fuego
-		/*Carta cartaMostrar = new Carta(0,0,"elemento");
-		
-		Carta c1 = new Carta(25,50,"agua");
-		Carta c2 = new Carta(50,60,"agua");
-		Carta c3 = new Carta(50,40,"agua");
-		
-		Carta c4 = new Carta(40,10,"fuego");
-		Carta c5 = new Carta(20,20,"fuego");
-		Carta c6 = new Carta(50,40,"fuego");
-		
-		Carta c7 = new Carta(30,30,"viento");
-		Carta c8 = new Carta(70,40,"viento");
-		Carta c9 = new Carta(20,50,"viento");
-		
-		Carta c10 = new Carta(30,60,"tierra");
-		Carta c11 = new Carta(20,80,"tierra");
-		Carta c12 = new Carta(70,20,"tierra");
-		*/
-		//AGUA VS FUEGO
-		//cartaMostrar.mostrar(c6.enfrentarse(c3));
-		
-		//AGUA VS TIERRA
-		//cartaMostrar.mostrar(c12.enfrentarse(c2));
-		
-		//FUEGO VS VIENTO
-		//cartaMostrar.mostrar(c8.enfrentarse(c5));
-		
-		//VIENTO VS TIERRA
-		//cartaMostrar.mostrar(c11.enfrentarse(c9));
 		
 		//Hacer un vector de 12 posiciones que sea de tipo Carta
 		vector();
@@ -138,40 +98,49 @@ public class Main {
 			}
 		
 		//Bucle for para mostrar los vectores hijos llenos
-//		for(int i = 0; i < 12; i++)
-//		{
-//			if(i < 6) 
-//			{
-//				cartaMostrar.mostrar(cartasHijo1[i]);
-//			}
-//			if(i > 5)
-//			{
-//				cartaMostrar.mostrar(cartasHijo2[i]);
-//			}
-//					
-//		}
-		
-		for(int i = 0; i < 6; i++)
-		{		
-			cartaMostrar.mostrar(cartasHijo1[i]);		
-		}
-		
-		for(int i = 5; i < 12; i++)
+		for(int i = 0; i < 12; i++)
 		{
-			cartaMostrar.mostrar(cartasHijo2[i]);
+			
+			if(i < 6) 
+			{
+				System.out.println("Cartas hijo 1");
+				cartaMostrar.mostrar(cartasHijo1[i]);
+			}
+			
+			if(i > 5)
+			{
+				System.out.println("Cartas hijo 2");
+				cartaMostrar.mostrar(cartasHijo2[i]);
+			}
+			
+					
 		}
 		
-		System.out.println("Vector hijo1");
-		cartaMostrar.mostrar(cartasHijo2[5].enfrentarse(c4));
 		
+		//Enfrentamiento de cartas
+		
+		for(int i = 0; i < 12; i++)
+		{
+			mostrar(cartasHijo1[5-0],cartasHijo2[12-6]);
+			cartaMostrar.mostrar(cartasHijo1[5-0].enfrentarse(cartasHijo2[12-6]));
+		}
 							
 	}//Fin metodo vector
+	
+	public static void mostrar(Carta carta1,Carta carta2)
+	{
+		carta1.mostrar();
+		System.out.println("VS");
+		carta2.mostrar();
+	}
 			
 	public static boolean validar(int num, int[] masoCartas) {
 		
 	for(int i = 0; i < 12; i++)
 		{
-			if(masoCartas[i] == num)
+			//Validar cuando num sea igual a masoCartas en alguna posicion
+			//la funcion retorne false
+		if(masoCartas[i] == num)
 			{
 //				System.out.println("Encontro el " + masoCartas[i]);
 //				System.out.println(masoCartas[i]);
@@ -179,6 +148,7 @@ public class Main {
 			}
 //			System.out.println(masoCartas[i]);
 		}
+	//retorne true cuando lo del if no se cumpla
 		return true;	
 	}
 	

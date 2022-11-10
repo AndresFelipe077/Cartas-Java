@@ -54,6 +54,13 @@ public class Carta {
 		carta.mostrar();
 	}
 	
+	public void mostrar(Carta carta1,Carta carta2)
+	{
+		carta1.mostrar();
+		System.out.println("vs");
+		carta2.mostrar();
+	}
+	
 	public Carta enfrentarse(Carta carta)
 	{
 		//Tenemos que cuando se enfrenten agua fuego a fuego quitarle 20%
@@ -177,15 +184,6 @@ public class Carta {
 		
 		
 		return carta;
-	}
-	
-	private void valorATK(Carta carta)
-	{
-		int porcentajeDescuento = 0, nuevoAtaque = 0;
-		
-		porcentajeDescuento = (int)(carta.getATK()*0.2);
-		nuevoAtaque = carta.getATK()-porcentajeDescuento;
-		carta.setATK(nuevoAtaque);
 	}
 	
 	
