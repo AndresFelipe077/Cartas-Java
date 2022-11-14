@@ -77,6 +77,7 @@ public class Carta {
 				nuevoAtaque = carta.getATK()-menosVeintePorciento;
 				System.out.println("El nuevo ataque es: " + nuevoAtaque);
 				carta.setATK(nuevoAtaque);
+				return carta;
 				
 			}
 			else if(carta.Elemento == "agua")
@@ -88,6 +89,7 @@ public class Carta {
 				nuevoAtaque = carta.getATK()-menosVeintePorciento;
 				System.out.println("El nuevo ataque es: " + nuevoAtaque);
 				this.setATK(nuevoAtaque);
+				return this;
 			}
 			//*****
 			
@@ -106,6 +108,7 @@ public class Carta {
 				nuevoAtaque = carta.getATK()-menosVeintePorciento;
 				System.out.println("El nuevo ataque es: " + nuevoAtaque);
 				carta.setATK(nuevoAtaque);
+				return carta;
 				
 			}
 			else if(carta.Elemento == "agua")
@@ -117,6 +120,7 @@ public class Carta {
 				nuevoAtaque = carta.getATK()-menosVeintePorciento;
 				System.out.println("El nuevo ataque es: " + nuevoAtaque);
 				this.setATK(nuevoAtaque);
+				return this;
 			}
 			//*****
 			
@@ -135,6 +139,7 @@ public class Carta {
 				nuevoAtaque = carta.getATK()-menosVeintePorciento;
 				System.out.println("El nuevo ataque es: " + nuevoAtaque);
 				carta.setATK(nuevoAtaque);
+				return carta;
 				
 			}
 			else if(carta.Elemento == "fuego")
@@ -146,6 +151,7 @@ public class Carta {
 				nuevoAtaque = carta.getATK()-menosVeintePorciento;
 				System.out.println("El nuevo ataque es: " + nuevoAtaque);
 				this.setATK(nuevoAtaque);
+				return this;
 			}
 			//*****
 			
@@ -165,6 +171,7 @@ public class Carta {
 				nuevoAtaque = carta.getATK()-menosVeintePorciento;
 				System.out.println("El nuevo ataque es: " + nuevoAtaque);
 				carta.setATK(nuevoAtaque);
+				return carta;
 				
 			}
 			else if(carta.Elemento == "viento")
@@ -176,6 +183,7 @@ public class Carta {
 				nuevoAtaque = carta.getATK()-menosVeintePorciento;
 				System.out.println("El nuevo ataque es: " + nuevoAtaque);
 				this.setATK(nuevoAtaque);
+				return this;
 			}
 			//*****
 			

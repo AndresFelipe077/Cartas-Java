@@ -1,4 +1,6 @@
 package main;
+import java.util.Scanner;
+
 import clases.*;
 
 public class Main {
@@ -6,21 +8,21 @@ public class Main {
 	public static void main(String[] args) {
 		
 		//Hacer un vector de 12 posiciones que sea de tipo Carta
-		vector();
+		RepartidorDeCartas();
 		
 	}
 	
-	public static void vector()
+	public static void RepartidorDeCartas()
 	{
 		//Metodo para mostrar las cartas
 		Carta cartaMostrar = new Carta(0,0,"elemento");
 				
 		//Maso de cartas
-		Carta c1 = new Carta(25,50,"agua");
+		Carta c1 = new Carta(100,80,"agua");
 		Carta c2 = new Carta(50,60,"agua");
 		Carta c3 = new Carta(50,40,"agua");
 				
-		Carta c4 = new Carta(40,10,"fuego");
+		Carta c4 = new Carta(70,100,"fuego");
 		Carta c5 = new Carta(20,20,"fuego");
 		Carta c6 = new Carta(50,40,"fuego");
 				
@@ -55,7 +57,7 @@ public class Main {
 		int []masoCartasRepartidas = new int[12];
 		
 		//Se pide numero random
-		int num = (int)(Math.random() * 12 + 1);
+		int num = (int)(Math.random() * 11 + 1);
 		//Se llama la funcion de validar
 		validar(num,masoCartasRepartidas);
 		//Se determina por boolean igualado a verdadero y un iterador
@@ -83,7 +85,7 @@ public class Main {
 		//Bucles for para mostrar el vector de cartasRepartidas
 		for(int k = 0; k < 12; k++)
 			{
-				System.out.println("Vector masoCartasRepartidas "+ "[" + k + "]" + " = " + masoCartasRepartidas[k]);
+				//System.out.println("Vector masoCartasRepartidas "+ "[" + k + "]" + " = " + masoCartasRepartidas[k]);
 			}
 		
 		//Bucle for para llamar a la posicion del masoCartas con la de masoCartasRepartidas
@@ -103,14 +105,14 @@ public class Main {
 			
 			if(i < 6) 
 			{
-				System.out.println("Cartas hijo 1");
-				cartaMostrar.mostrar(cartasHijo1[i]);
+				//System.out.println("Cartas hijo 1");
+				//cartaMostrar.mostrar(cartasHijo1[i]);
 			}
 			
 			if(i > 5)
 			{
-				System.out.println("Cartas hijo 2");
-				cartaMostrar.mostrar(cartasHijo2[i]);
+				//System.out.println("Cartas hijo 2");
+				//cartaMostrar.mostrar(cartasHijo2[i]);
 			}
 			
 					
@@ -119,13 +121,75 @@ public class Main {
 		
 		//Enfrentamiento de cartas
 		
-		for(int i = 0; i < 12; i++)
-		{
-			mostrar(cartasHijo1[5-0],cartasHijo2[12-6]);
-			cartaMostrar.mostrar(cartasHijo1[5-0].enfrentarse(cartasHijo2[12-6]));
+		
+		try (//cartaMostrar.mostrar(enfrentamientoCartas(c15, c16));
+		var entrada = new Scanner(System.in)) {
+			int car1,car2;
+			System.out.println("masoCartas[0] agua");
+			System.out.println("masoCartas[3] tierra");
+			System.err.println("Escoge una carta1");
+			car1 = entrada.nextInt();
+			System.err.println("Escoge una carta2");
+			car2 = entrada.nextInt();
+			if(car1 == 0 && car2 == 3)
+			{
+				Carta pito1 = masoCartas[car1];
+				Carta pito2 = masoCartas[car2];
+				cartaMostrar.mostrar(enfrentamientoCartas(pito1, pito2));
+			}
+			else
+			{
+				System.err.println("¡Lo siento no fue posible hacer el enfrentamiento, indices incorrectos!");	
+			}
 		}
-							
+		
+		
 	}//Fin metodo vector
+	
+	//funcion para devolver carta al momento de algun enfrentamiento
+	public static Carta enfrentamientoCartas(Carta c1,Carta c2)
+	{
+		
+		if(c1.getATK() > c2.getDEF())
+		{
+			System.out.println("¡Gana carta1 ATK mayor!");		
+			return c1;
+		}
+		/*else if (c1.getATK() < c2.getDEF()) {
+			System.out.println("Se devuelve carta2");
+			int restaDEF = c1.getATK()-c2.getDEF();
+			c2.setDEF(restaDEF*-1);
+			return c2;
+		}*/
+		else if(c2.getATK() > c1.getDEF())
+		{
+			System.out.println("¡Gana carta2 ATK mayor!");
+			return c2;
+		}
+		/*else if (c2.getATK() < c1.getDEF()) {
+			System.out.println("Se devuelve carta1");
+			int restaDEF = c2.getATK()-c1.getDEF();
+			c1.setDEF(restaDEF*-1);
+			return c1;
+		}*/
+		else if(c1.getATK() == c2.getDEF())
+		{
+			System.out.println("¡Carta por desenpate c1.ATK == c2.DEF!");
+			return c1.enfrentarse(c2);
+		}
+		else if(c2.getATK() == c1.getDEF())
+		{
+			System.out.println("¡Carta por desenpate c2.ATK == c1.DEF!");
+			return c2.enfrentarse(c1);
+		}
+		else
+		{
+			System.out.println("Se devuelve carta2");
+			return c2;
+		}
+		
+		
+	}
 	
 	public static void mostrar(Carta carta1,Carta carta2)
 	{
