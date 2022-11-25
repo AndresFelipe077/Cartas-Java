@@ -105,14 +105,14 @@ public class Main {
 			
 			if(i < 6) 
 			{
-				//System.out.println("Cartas hijo 1");
-				//cartaMostrar.mostrar(cartasHijo1[i]);
+				System.out.println("Cartas hijo 1");
+				cartaMostrar.mostrar(cartasHijo1[i]);
 			}
 			
 			if(i > 5)
 			{
-				//System.out.println("Cartas hijo 2");
-				//cartaMostrar.mostrar(cartasHijo2[i]);
+				System.out.println("Cartas hijo 2");
+				cartaMostrar.mostrar(cartasHijo2[i]);
 			}
 			
 					
@@ -122,26 +122,26 @@ public class Main {
 		//Enfrentamiento de cartas
 		
 		
-		try (//cartaMostrar.mostrar(enfrentamientoCartas(c15, c16));
-		var entrada = new Scanner(System.in)) {
-			int car1,car2;
-			System.out.println("masoCartas[0] agua");
-			System.out.println("masoCartas[3] tierra");
-			System.err.println("Escoge una carta1");
-			car1 = entrada.nextInt();
-			System.err.println("Escoge una carta2");
-			car2 = entrada.nextInt();
-			if(car1 == 0 && car2 == 3)
-			{
-				Carta pito1 = masoCartas[car1];
-				Carta pito2 = masoCartas[car2];
-				cartaMostrar.mostrar(enfrentamientoCartas(pito1, pito2));
-			}
-			else
-			{
-				System.err.println("¡Lo siento no fue posible hacer el enfrentamiento, indices incorrectos!");	
-			}
-		}
+//		try (//cartaMostrar.mostrar(enfrentamientoCartas(c15, c16));
+//		var entrada = new Scanner(System.in)) {
+//			int car1,car2;
+//			System.out.println("masoCartas[0] agua");
+//			System.out.println("masoCartas[3] tierra");
+//			System.err.println("Escoge una carta1");
+//			car1 = entrada.nextInt();
+//			System.err.println("Escoge una carta2");
+//			car2 = entrada.nextInt(); 
+//			if(car1 == 0 && car2 == 3)
+//			{
+//				Carta pito1 = masoCartas[car1];
+//				Carta pito2 = masoCartas[car2];
+//				cartaMostrar.mostrar(enfrentamientoCartas(pito1, pito2));
+//			}
+//			else
+//			{
+//				System.err.println("¡Lo siento no fue posible hacer el enfrentamiento, indices incorrectos!");	
+//			}
+//		}
 		
 		
 	}//Fin metodo vector
